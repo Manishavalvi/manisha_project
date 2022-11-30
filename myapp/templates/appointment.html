@@ -1,0 +1,67 @@
+{% extends 'header.html' %}
+
+{% load static %}
+
+{% block content %}
+    <!-- Appointment Start -->
+    <div class="container-fluid bg-primary my-5 py-5">
+        <div class="container py-5">
+            <div class="row gx-5">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <div class="mb-4">
+                        <h5 class="d-inline-block text-white text-uppercase border-bottom border-5">Appointment</h5>
+                        <h1 class="display-4">Make An Appointment For Your Family</h1>
+                    </div>
+                    <p class=" text-white mb-5">Appointdoctor is an online doctor booking service in Surat which offers a better way for booking an appointment from home.</p>
+                    <a class="btn btn-dark rounded-pill py-3 px-5 me-3" href="{% url 'doctor' %}">Find Doctor</a>
+                    <a class="btn btn-outline-primary rounded-pill py-3 px-5" href="">Read More</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="bg-light text-center rounded p-5">
+                        <h1 class="mb-4">Book An Appointment</h1>
+                        <p><b>{{msg }}</b></p>
+                        <form action="{% url 'appointment' %}" method="POST">
+
+                            {% csrf_token %}
+
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" name="fname" class="form-control bg-white border-0" placeholder="Your First Name" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" name="lname" class="form-control bg-white border-0" placeholder="Your Last Name" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" name="email" class="form-control bg-white border-0" placeholder="Your Email" style="height: 55px;">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" name="mobile" class="form-control bg-white border-0" placeholder="Your Mobile" style="height: 55px;">
+                                </div>
+                                
+                                <div class="col-12 col-sm-6">
+                                    <div class="date" id="date" data-target-input="nearest">
+                                        <input type="text" name="date"
+                                            class="form-control bg-white border-0 datetimepicker-input"
+                                            placeholder="Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <div class="time" id="time" data-target-input="nearest">
+                                        <input type="text" name="time"
+                                            class="form-control bg-white border-0 datetimepicker-input"
+                                            placeholder="Time" data-target="#time" data-toggle="datetimepicker" style="height: 55px;">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-50 py-3" type="submit">Make An Appointment</button>
+                                </div>
+                                
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Appointment End -->
+{% endblock %}
