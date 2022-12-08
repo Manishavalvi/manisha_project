@@ -51,6 +51,10 @@ def contact(request):
         
 
 
+def paymentfail(request):
+    return render(request,'paymentfail.html')
+
+
 def payment(request):
     return render(request,'payment.html')
 
@@ -166,7 +170,7 @@ def otp(request):
     if c_otp == int(request.POST['uotp']):
         AppoUser.objects.create (
         
-            
+                        
             f_name = user_data['fname'],
             l_name = user_data['lname'],
             email = user_data['email'],

@@ -12,5 +12,7 @@ urlpatterns = [
     path('otp/', views.otp, name='otp'),
     path('otp/paymenthandler/', views.paymenthandler, name='paymenthandler'),
     path('payment/', views.payment, name='payment'),
+    path('paymentfail/', views.paymentfail, name='paymentfail'),
+
    
 ]
